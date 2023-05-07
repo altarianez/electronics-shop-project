@@ -28,6 +28,12 @@ class Item:
     def __str__(self):
         return self.name
 
+    def __add__(self, other):
+        if isinstance(other, Item):
+            return self.quantity + other.quantity
+        else:
+            raise ValueError("Сложение возможно только с объектами класса Item и его дочерними")
+
     @property
     def name(self):
         return self.__name
